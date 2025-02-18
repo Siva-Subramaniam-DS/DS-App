@@ -102,7 +102,8 @@ model, accuracy, report = train_model(X, y)
 
 st.write(f"**Accuracy:** {accuracy:.2f}")
 st.write("**Classification Report:**")
-st.json(report)
+st.code(f"Accuracy: {accuracy:.2f}\n\nClassification Report:\n{report}", language="json")
+
 
 # Search Box for App Name
 st.sidebar.header("🔍 Search for an App")
