@@ -6,8 +6,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import ChatPromptTemplate
+
 
 # Page Config & Styling
 st.set_page_config(page_title="Sentiment Analysis App", layout="wide")
@@ -93,7 +92,7 @@ else:
     
 
 # Tabs for Sections
-tab1, tab2, tab3 = st.tabs(["📈 App Analysis", "🤖 ML Model", "💬 Lexi Chatbot"])
+tab1, tab2= st.tabs(["📈 App Analysis", "🤖 ML Model"])
 
 with tab1:
     st.subheader(f"Showing data for: **{category_option}** ({store_option})")
@@ -132,26 +131,7 @@ with tab2:
     st.write("**Classification Report:")
     st.code(report, language="json")
 
-with tab3:
-    try:
-        model = OllamaLLM(model="llava")
-        template = """
-        Answer the question below.
-        Here is the conversation history:
-        {context}
-        Question: {question}
-        Answer:
-        """
-        prompt = ChatPromptTemplate.from_template(template)
-        chain = prompt | model
-        st.sidebar.header("💬 Chat with Lexi")
-        user_query = st.text_input("Ask any question to Lexi")
-        if user_query:
-            result = chain.invoke({"context": "", "question": user_query}).strip()
-            st.write("### Response:")
-            st.write(result)
-    except Exception as e:
-        st.sidebar.warning("LLM is not available. Please check your server setup.")
+
 
 # Footer
 st.markdown(
