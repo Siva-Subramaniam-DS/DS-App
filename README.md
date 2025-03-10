@@ -81,3 +81,12 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ## 📜 License
 This project is licensed under the **MIT License**.
+
+---
+
+## 👨‍💻 Author  
+- **Your Name**  
+- GitHub: [@yourusername](https://github.com/Siva-Subramaniam-DS)  
+- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/r-siva-subramanaiam/)  
+
+---
